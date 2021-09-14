@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 const CONNECTION_URL =
-  "mongodb+srv://KevinrToday:krtoday@nomadee.bsw8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://KevinrToday:kevinrtoday@nomadee.bsw8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
 mongoose
@@ -23,5 +23,3 @@ mongoose
     app.listen(PORT, () => console.log(`Server runnion on port: ${PORT}`))
   )
   .catch((error) => console.log(error.message));
-
-mongoose.set("useFindAndModify, false");
