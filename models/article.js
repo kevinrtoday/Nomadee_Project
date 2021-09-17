@@ -6,6 +6,11 @@ const { JSDOM } = require("jsdom");
 const dompurify = createDomPurify(new JSDOM().window);
 
 const articleSchema = new mongoose.Schema({
+  Photo: {
+    img: { data: Buffer, contentType: String },
+    require: false,
+  },
+
   city: {
     type: String,
     required: true,
@@ -49,24 +54,4 @@ articleSchema.pre("validate", function (next) {
   next();
 });
 
-const membersSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-
-  username: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-});
-
-(module.exports = mongoose.model("Article", articleSchema)),
-  (module.exports = mongoose.model("Members", membersSchema));
+module.exports = mongoose.model("Article", articleSchema);
