@@ -5,10 +5,11 @@ import { Route } from "react-router-dom";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
-import Edit from "./components/edit";
-import Create from "./components/create";
-import RecordList from "./components/recordList";
-import Home from "./components/Home";
+// import Edit from "./components/edit";
+import Join from "./views/join";
+import Home from "./views/home";
+import Events from "./views/events";
+import Record from "../src/components/record";
 
 const App = () => {
   return (
@@ -17,11 +18,16 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/members" />
-      <RecordList />
-      <Route path="/edit/:id" component={Edit} />
-      <Route path="/create">
-        <Create />
+      {/* <Route path="/edit/:id" component={Edit} /> */}
+      {/* <Edit /> */}
+      <Route exact path="/join">
+        <Join />
+      </Route>
+      <Route exact path="/events">
+        <Events />
+      </Route>
+      <Route exact path="/record">
+        <Record />
       </Route>
     </div>
   );

@@ -49,4 +49,24 @@ articleSchema.pre("validate", function (next) {
   next();
 });
 
-module.exports = mongoose.model("Article", articleSchema);
+const membersSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+
+  username: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+});
+
+(module.exports = mongoose.model("Article", articleSchema)),
+  (module.exports = mongoose.model("Members", membersSchema));
